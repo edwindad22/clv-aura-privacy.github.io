@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CLV Aura — Privacy Policy</title>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; max-width: 760px; margin: 0 auto; padding: 40px 24px; color: #1a1a1a; line-height: 1.7; }
+    h1 { font-size: 1.8rem; margin-bottom: 4px; }
+    h2 { font-size: 1.1rem; margin-top: 36px; margin-bottom: 8px; }
+    p, li { font-size: 0.97rem; color: #333; }
+    a { color: #0891b2; }
+    .meta { color: #666; font-size: 0.875rem; margin-bottom: 40px; }
+    hr { border: none; border-top: 1px solid #e5e7eb; margin: 40px 0; }
+    .callout { background: #f0f9ff; border-left: 3px solid #0891b2; padding: 12px 16px; margin: 24px 0; font-size: 0.9rem; color: #333; }
+  </style>
+</head>
+<body>
+  <h1>Privacy Policy</h1>
+  <p class="meta">CLV Aura &mdash; Last updated: March 2026</p>
+
+  <p>CLV Aura is a Shopify application that analyzes customer lifetime value data for merchants. This policy explains what data we access, how it is used, and your rights as a merchant and as a customer of a merchant using this app.</p>
+
+  <div class="callout">
+    CLV Aura acts as a <strong>data processor</strong> on behalf of the merchant (the data controller). We access merchant store data solely to perform analytics computations and return results to the merchant. We do not use this data for any other purpose.
+  </div>
+
+  <h2>1. Data We Access</h2>
+  <p>When a merchant installs CLV Aura, the app is granted the following Shopify permissions:</p>
+  <ul>
+    <li><strong>read_orders</strong> — order history including dates, amounts, and associated customer information</li>
+    <li><strong>read_customers</strong> — customer records and any custom metafields (e.g. age, segment, income range) set by the merchant</li>
+    <li><strong>read_products</strong> — product titles, vendors, and categories associated with orders</li>
+  </ul>
+
+  <p>As part of order processing, the following customer data fields may be accessed:</p>
+  <ul>
+    <li>Customer email address (used as a customer identifier for CLV calculations)</li>
+    <li>Billing name (first and last name as recorded on the order)</li>
+    <li>Shipping and billing city, state/province, country, and postal code</li>
+    <li>Order amounts, discount amounts, refunds, and shipping costs</li>
+    <li>Product names, categories, and vendors per order</li>
+    <li>Order source and referring site (for acquisition channel analysis)</li>
+    <li>Custom customer metafields if configured by the merchant (e.g. age, income range, segment)</li>
+  </ul>
+
+  <h2>2. How We Use Data</h2>
+  <p>All data accessed is used exclusively to:</p>
+  <ul>
+    <li>Compute Customer Lifetime Value (CLV), Residual Lifetime Value (RLV), and churn probability scores using a probabilistic BG/NBD model</li>
+    <li>Generate analytics including cohort analysis, RFM segmentation, geographic and product attribution, and revenue forecasting</li>
+    <li>Return those analytics results to the authenticated merchant within the app</li>
+  </ul>
+  <p>We do not use customer data for advertising, profiling, model training on data from other merchants, or any purpose beyond the analytics session initiated by the merchant.</p>
+
+  <h2>3. Data Storage and Retention</h2>
+  <p>CLV Aura is designed as a <strong>stateless processor</strong>:</p>
+  <ul>
+    <li>Order and customer data is fetched on demand, processed in memory, and returned to the merchant. It is not written to a database.</li>
+    <li>Analytics results may be temporarily cached in the merchant's browser (localStorage) to improve performance. This data never leaves the merchant's device.</li>
+    <li>The only data stored on our servers (Google Cloud Firestore) is the merchant's Shopify OAuth access token, which is required to authenticate API requests on the merchant's behalf. This token is deleted immediately when the app is uninstalled (via Shopify's GDPR shop/redact webhook).</li>
+  </ul>
+
+  <h2>4. Data Sharing</h2>
+  <p>We do not sell, rent, license, or share merchant or customer data with any third parties. Data is not transferred outside of the processing pipeline described above.</p>
+  <p>Our infrastructure uses Google Cloud Platform (Cloud Functions, Firestore) as a sub-processor solely for computation and token storage. Google's privacy policy applies to that infrastructure.</p>
+
+  <h2>5. GDPR and Shopify Compliance</h2>
+  <p>CLV Aura implements all mandatory Shopify GDPR webhooks:</p>
+  <ul>
+    <li><strong>customers/data_request</strong> — we confirm no customer data is stored on our servers</li>
+    <li><strong>customers/redact</strong> — we confirm no customer data requires redaction (none is stored)</li>
+    <li><strong>shop/redact</strong> — we delete the merchant's OAuth access token from our systems upon receiving this webhook</li>
+  </ul>
+
+  <h2>6. Security</h2>
+  <p>All communication between CLV Aura, Shopify, and our backend uses HTTPS encryption. Shopify OAuth 2.0 is used for merchant authentication. Webhook authenticity is verified via HMAC-SHA256 signature validation on every incoming webhook.</p>
+
+  <h2>7. Your Rights (End Customers)</h2>
+  <p>If you are a customer of a Shopify store that uses CLV Aura, your data is controlled by that merchant, not by CLV Aura. Please contact the merchant directly to exercise data rights (access, deletion, portability) under applicable law. Because CLV Aura does not store customer data, there is no customer data held by us to request or delete.</p>
+
+  <h2>8. Merchant Rights</h2>
+  <p>As a merchant, you may revoke CLV Aura's access to your store at any time via Shopify Admin &rarr; Apps &rarr; CLV Aura &rarr; Delete. This immediately revokes the OAuth access token and triggers deletion of your stored token from our systems.</p>
+
+  <h2>9. Contact</h2>
+  <p>Questions about this policy? Contact us at <a href="mailto:RyanTOrton@gmail.com">RyanTOrton@gmail.com</a>.</p>
+
+  <hr />
+  <p style="font-size:0.8rem; color:#999;">CLV Aura is an independent Shopify app. This policy applies to the CLV Aura application only.</p>
+</body>
+</html>
